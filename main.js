@@ -24,19 +24,16 @@ function translate(what) {
         let kej = eval(`en_data_locale.${keyys[i]}.${what}`) || false
 
         if(kej !== false) {
-                 done = keyys[i]
-        } else {
-            continue;
+            done = keyys[i]
         }
-
     }
 
+    if(!done) return translation = "`error`";
+
     try{
-        translation = eval(`data_locale.${done}.${what}`)
-            return translation;
+        return translation = eval(`data_locale.${done}.${what}`);
     } catch {
-        translation = eval(`en_data_locale.${done}.${what}`)
-            return translation;
+        return translation = eval(`en_data_locale.${done}.${what}`);
     }
 
 }
